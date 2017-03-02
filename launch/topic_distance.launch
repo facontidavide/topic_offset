@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="remove_initial_offset" default="true" />
+    <arg name="pose1" default="/mavros/local_position/pose" />
+    <arg name="pose2" default="/ros_vrpn_client/estimated_pose" />
+    <arg name="input" default="" />
+    <arg name="output" default=""/>
+
+    <node pkg="topic_distance" type="topic_distance" name="topic_distance" output="screen">
+        <param name="remove_initial_offset" type="bool" value="$(arg remove_initial_offset)"/>
+        <param name="pose1" type="str" value="$(arg pose1)"/>
+        <param name="pose2" type="str" value="$(arg pose2)"/>
+        <param name="inputfile" type="str" value="$(arg input)"/>
+        <param name="outputfile" type="str" value="$(arg output)"/>
+    </node>
+
+</launch>
